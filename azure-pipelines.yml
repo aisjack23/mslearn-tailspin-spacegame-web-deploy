@@ -8,7 +8,7 @@ resources:
     - repository: githubRepo
       type: github
       name: aisjack23/mslearn-tailspin-spacegame-web-deploy
-      endpoint: github-connection
+      endpoint: aison.jack.d.mendoza
       ref: refs/heads/main
 
 pool:
