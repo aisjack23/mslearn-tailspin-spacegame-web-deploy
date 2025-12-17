@@ -19,6 +19,14 @@ steps:
   persistCredentials: true
 
 - script: |
+    if [ -z "$AZURE_DEVOPS_PAT" ]; then
+      echo "AZURE_DEVOPS_PAT is not set!"
+    else
+      echo "AZURE_DEVOPS_PAT variable is set."
+    fi
+  displayName: 'Check PAT variable'
+
+- script: |
     git config user.email "aison.jack.d.mendoza@accenture.com"
     git config user.name "Mendoza, Aison Jack D."
 
