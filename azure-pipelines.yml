@@ -17,6 +17,7 @@ pool:
 steps:
 - checkout: githubRepo
   persistCredentials: true
+  fetchDepth: 0
 
 - script: |
     if [ -z "$(AZURE_DEVOPS_PAT)" ]; then
