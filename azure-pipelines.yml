@@ -33,6 +33,6 @@ steps:
     git fetch origin main
     git checkout main
 
-    git remote add azrepo https://$AZURE_DEVOPS_PAT@dev.azure.com/appdev-upskilling-fy2601/aison.jack.d.mendoza/_git/mslearn-tailspin-spacegame-web-deploy
+    git remote add azrepo https://$(AZURE_DEVOPS_PAT)@dev.azure.com/appdev-upskilling-fy2601/aison.jack.d.mendoza/_git/mslearn-tailspin-spacegame-web-deploy
     git push azrepo main --force
   displayName: "Mirror GitHub repo to Azure DevOps repo"
