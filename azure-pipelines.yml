@@ -22,6 +22,6 @@ steps:
     git config user.email "aison.jack.d.mendoza@accenture.com"
     git config user.name "Mendoza, Aison Jack D."
 
-    git remote add azrepo https://$(GitHub-to-Azure-Mirror)@dev.azure.com/appdev-upskilling-fy2601/aison.jack.d.mendoza/_git/mslearn-tailspin-spacegame-web-deploy
+    git remote add azrepo https://$GitHub-to-Azure-Mirror@dev.azure.com/appdev-upskilling-fy2601/aison.jack.d.mendoza/_git/mslearn-tailspin-spacegame-web-deploy
     git push azrepo main --force
   displayName: "Mirror GitHub repo to Azure DevOps repo"
