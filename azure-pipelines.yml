@@ -19,7 +19,7 @@ steps:
   persistCredentials: true
 
 - script: |
-    if [ -z "$AZURE_DEVOPS_PAT" ]; then
+    if [ -z "$(AZURE_DEVOPS_PAT)" ]; then
       echo "AZURE_DEVOPS_PAT is not set!"
     else
       echo "AZURE_DEVOPS_PAT variable is set."
