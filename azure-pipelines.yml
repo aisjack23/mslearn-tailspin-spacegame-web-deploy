@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+      - main
+
+resources:
+  repositories:
+    - repository: githubRepo
+      type: github
+      name: aisjack23/mslearn-tailspin-spacegame-web-deploy
+      endpoint: github-connection
+      ref: refs/heads/main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: githubRepo
+  persistCredentials: true
+
+- script: |
+    git config user.email "aison.jack.d.mendoza@accenture.com"
+    git config user.name "Mendoza, Aison Jack D."
+
+    git remote add azrepo https://$(AZURE_DEVOPS_PAT)@dev.azure.com/appdev-upskilling-fy2601/aison.jack.d.mendoza/_git/mslearn-tailspin-spacegame-web-deploy
+    git push azrepo main --force
+  displayName: "Mirror GitHub repo to Azure DevOps repo"
