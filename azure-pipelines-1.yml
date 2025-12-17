@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureCLI@2
+  displayName: 'Run Azure CLI'
+  inputs:
+    azureSubscription: 'Resource Manager - Tailspin - Space Game'   # 👈 service connection name
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az account show
+      az group list
