@@ -8,6 +8,9 @@ variables:
   azureServiceConnection: 'Resource Manager - Tailspin - Space Game'
 
 steps:
+- checkout: self
+  persistCredentials: true
+
 - task: AzureCLI@2
   displayName: 'Run Azure CLI'
   inputs:
