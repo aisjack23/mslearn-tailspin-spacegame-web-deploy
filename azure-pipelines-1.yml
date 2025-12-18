@@ -4,11 +4,14 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  azureServiceConnection: 'Resource Manager - Tailspin - Space Game'
+
 steps:
 - task: AzureCLI@2
   displayName: 'Run Azure CLI'
   inputs:
-    azureSubscription: 'Resource Manager - Tailspin - Space Game'   # 👈 service connection name
+    azureSubscription: $(azureServiceConnection)   # 👈 service connection name
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
