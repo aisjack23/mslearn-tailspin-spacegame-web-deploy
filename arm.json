@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"siteName": {
+			"type": "string",
+			"defaultValue": "MyTestAppAis0003"
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "southeastasia"
+		},
+		"serverFarmId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/80e8f22c-e176-4086-9e40-28191ee0e6bf/resourceGroups/rg-dev/providers/Microsoft.Web/serverfarms/TestProject-Plan"
+		}
+	},
+	"resources": [
+		{
+			"type": "Microsoft.Web/sites",
+			"apiVersion": "2024-11-01",
+			"name": "[parameters('siteName')]",
+			"location": "[parameters('location')]",
+			"kind": "app",
+			"properties": {
+				"serverFarmId": "[parameters('serverFarmId')]",
+				"httpsOnly": false,
+				"clientAffinityEnabled": true,
+				"siteConfig": {
+					"numberOfWorkers": 1,
+					"alwaysOn": false,
+					"http20Enabled": false,
+					"minimumElasticInstanceCount": 1,
+					"linuxFxVersion": "",
+					"windowsFxVersion": null
+				},
+				"publicNetworkAccess": "Enabled"
+			}
+		}
+	]
+}
